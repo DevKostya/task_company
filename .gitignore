@@ -1,0 +1,5 @@
+.idea/*
+laradock/*
+laradock
+src/.docker.env
+src/node_modules
