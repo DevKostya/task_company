@@ -18,10 +18,13 @@ class CreateCompaniesTable extends Migration
             $table->string('name', 100);
             $table->bigInteger('inn');
             $table->text('information');
-            $table->string('director_name', 100);
+            $table->bigInteger('director_id')->unsigned();
             $table->string('address');
             $table->string('phone_number');
             $table->timestamps();
+        });
+        Schema::table('companies', function (Blueprint $table) {
+            $table->foreign('director_id')->references('id')->on('users');
         });
     }
 

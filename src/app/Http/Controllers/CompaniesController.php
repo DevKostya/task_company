@@ -25,12 +25,11 @@ class CompaniesController extends Controller
 
     /**
      * @param $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return mixed
      */
-    public function getCompany($id)
+    public function getCompanyById($id)
     {
-        $company = $this->companyService->getCompanyById($id);
-        return view('company', compact('company'));
+        return $this->getCompanyById($id);
     }
 
     /**

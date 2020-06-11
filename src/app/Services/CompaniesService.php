@@ -14,10 +14,6 @@ class CompaniesService
         return Company::all();
     }
 
-    /**
-     * @param $id
-     * @return mixed
-     */
     public function getCompanyById($id)
     {
         return Company::find($id);
@@ -29,13 +25,6 @@ class CompaniesService
      */
     public function postCompany($params)
     {
-        return Company::create([
-            'name' => $params['name'],
-            'inn' => $params['inn'],
-            'information' => $params['information'],
-            'director_name' => $params['director_name'],
-            'address' => $params['address'],
-            'phone_number' => $params['phone_number'],
-        ]);
+        return Company::create($params);
     }
 }

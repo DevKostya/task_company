@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddCompanyRequest extends FormRequest
+class AddCommentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,8 @@ class AddCompanyRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
-            'inn' => 'required|integer',
-            'information' => 'required|string',
-            'director_id' => 'required|integer|min:1',
-            'address' => 'required|string',
-            'phone_number' => 'required|integer',
+            'column_name' => 'required|in:"Название", "ИНН", "Общая информация", "Генеральный директор", "Адрес", "Телефон", "Компания целиком"',
+            'text' => 'required',
         ];
     }
 }

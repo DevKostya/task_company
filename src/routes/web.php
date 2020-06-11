@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +13,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes([
+    'reset'=>false,
+    'confirm'=>false,
+    'verify'=>false,
+]);
 Route::get('/', 'CompaniesController@getCompanies');
 Route::post('/company', 'CompaniesController@addCompany');
-Route::get('/company/{id}', 'CompaniesController@getCompany');
+Route::get('/company/{id}', 'CommentsController@getCompany');
+Route::post('/company/{id}', 'CommentsController@addComment');
+Route::get('/home', 'HomeController@index')->name('home');
